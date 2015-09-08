@@ -1,7 +1,8 @@
 Package.describe({
   name: 'chap:accounts-intra42',
-  version: '1.0.1',
-  summary: 'Login service for Intranet 42 accounts'
+  version: '1.0.2',
+  summary: 'Login service for Intranet 42 accounts',
+  git: 'https://github.com/marcchapeau/meteor-accounts-intra42'
 });
 
 Package.onUse(function (api) {
