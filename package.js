@@ -18,7 +18,7 @@ Package.onUse(function (api) {
   api.use(
     ['accounts-ui', 'intra42-config-ui'],
     ['client', 'server'],
-    { weak: true }
+    {weak: true}
   )
   api.addFiles('notice.js')
   api.addFiles('intra42.js')
