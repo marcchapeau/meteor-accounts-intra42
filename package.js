@@ -13,11 +13,11 @@ Package.onUse(function (api) {
   api.imply('accounts-base', ['client', 'server'])
 
   api.use('accounts-oauth', ['client', 'server'])
-  api.use('chap:intra42-oauth')
+  api.use('chap:intra42-oauth@1.0.0')
   api.imply('chap:intra42-oauth')
 
   api.use(
-    ['accounts-ui', 'intra42-config-ui'],
+    ['accounts-ui', 'intra42-config-ui@1.0.1'],
     ['client', 'server'],
     {weak: true}
   )
