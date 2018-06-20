@@ -6,6 +6,7 @@ Package.describe({
 })
 
 Package.onUse(function (api) {
+  api.versionsFrom('1.4.3')
   api.use('ecmascript')
   api.use('accounts-base', ['client', 'server'])
   // Export Accounts (etc) to packages using this one.
