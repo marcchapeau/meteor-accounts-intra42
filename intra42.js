@@ -1,17 +1,21 @@
-Accounts.oauth.registerService('intra42');
+Accounts.oauth.registerService('intra42')
 
 if (Meteor.isClient) {
-  Meteor.loginWithIntra42 = function (options, callback) {
+  const loginWithIntra42 = function (options, callback) {
     if (!callback && typeof options === 'function') {
-      callback = options;
-      options = null;
+      callback = options
+      options = null
     }
-    var credentialRequestCompleteCallback = Accounts.oauth.credentialRequestCompleteHandler(callback);
-    Intra42.requestCredential(options, credentialRequestCompleteCallback);
-  };
+    const credentialRequestCompleteCallback = Accounts.oauth.credentialRequestCompleteHandler(callback)
+    Intra42.requestCredential(options, credentialRequestCompleteCallback)
+  }
+  Accounts.registerClientLoginFunction('intra42', loginWithIntra42)
+  Meteor.loginWithIntra42 = function () {
+    return Accounts.applyLoginFunction('intra42', arguments)
+  }
 } else {
   Accounts.addAutopublishFields({
     forLoggedInUser: ['services.intra42'],
     forOtherUsers: ['services.intra42.username']
-  });
+  })
 }
