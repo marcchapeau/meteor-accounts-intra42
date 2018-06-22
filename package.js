@@ -1,6 +1,6 @@
 Package.describe({
   summary: 'Login service for Intranet 42 accounts',
-  version: '1.3.0',
+  version: '1.4.0',
   name: 'chap:accounts-intra42',
   git: 'https://github.com/marcchapeau/meteor-accounts-intra42'
 })
@@ -13,7 +13,7 @@ Package.onUse(function (api) {
   api.imply('accounts-base', ['client', 'server'])
 
   api.use('accounts-oauth', ['client', 'server'])
-  api.use('chap:intra42-oauth@1.0.0')
+  api.use('chap:intra42-oauth@1.1.0')
   api.imply('chap:intra42-oauth')
 
   api.use(
