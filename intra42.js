@@ -2,11 +2,6 @@ import { Accounts } from 'meteor/accounts-base'
 import { Meteor } from 'meteor/meteor'
 import { Intra42 } from 'meteor/chap:intra42-oauth'
 
-// const settings = Meteor.settings
-// const app = settings.public && settings.public.intra42 && settings.public.intra42.app
-// let name = 'intra42'
-// if (app) name += `_${app}`
-
 Accounts.oauth.registerService('intra42')
 
 if (Meteor.isClient) {
