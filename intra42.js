@@ -2,12 +2,12 @@ import { Accounts } from 'meteor/accounts-base'
 import { Meteor } from 'meteor/meteor'
 import { Intra42 } from 'meteor/chap:intra42-oauth'
 
-const settings = Meteor.settings
-const app = settings.public && settings.public.intra42 && settings.public.intra42.app
-let name = 'intra42'
-if (app) name += `_${app}`
+// const settings = Meteor.settings
+// const app = settings.public && settings.public.intra42 && settings.public.intra42.app
+// let name = 'intra42'
+// if (app) name += `_${app}`
 
-Accounts.oauth.registerService(name)
+Accounts.oauth.registerService('intra42')
 
 if (Meteor.isClient) {
   const loginWithIntra42 = function (options, callback) {
@@ -18,9 +18,9 @@ if (Meteor.isClient) {
     const credentialRequestCompleteCallback = Accounts.oauth.credentialRequestCompleteHandler(callback)
     Intra42.requestCredential(options, credentialRequestCompleteCallback)
   }
-  Accounts.registerClientLoginFunction(name, loginWithIntra42)
+  Accounts.registerClientLoginFunction('intra42', loginWithIntra42)
   Meteor.loginWithIntra42 = function () {
-    return Accounts.applyLoginFunction(name, arguments)
+    return Accounts.applyLoginFunction('intra42', arguments)
   }
 } else {
   Accounts.addAutopublishFields({
